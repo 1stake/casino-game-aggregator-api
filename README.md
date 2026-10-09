@@ -61,7 +61,7 @@ flowchart LR
 
 ---
 
-## 🔌 Developer Integration
+## 🔌 Casino API Integration
 
 The API uses versioned **JSON endpoints over HTTPS**, explicit error codes and unique transaction IDs for reconciliation and retry handling. Sandbox players, balances and test scenarios support integration testing.
 
