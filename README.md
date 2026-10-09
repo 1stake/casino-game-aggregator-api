@@ -1,6 +1,6 @@
 # 🎰 1Stake Casino Game Aggregator API
 
-Connect your online casino to **90+ game providers and 12,000+ casino games** through a single integration. The **1Stake Casino API** provides game aggregation, seamless wallet integration, game launch, catalogue synchronisation and round reporting for iGaming operators and platform developers.
+Connect your online casino to **90+ game providers and 13,000+ casino games** through a single integration. The **1Stake Casino API** provides game aggregation, seamless wallet integration, game launch, catalogue synchronisation and round reporting for iGaming operators and platform developers.
 
 > [API OVERVIEW](https://1stake.app/products/casino-api?utm_source=github&utm_medium=referral&utm_campaign=api_readme)
 > • [GAME PROVIDERS](https://1stake.app/products/casino-platform/game-providers?utm_source=github&utm_medium=referral&utm_campaign=api_readme)
@@ -16,7 +16,7 @@ A **casino game aggregator API** connects an online casino platform to multiple 
 
 ```mermaid
 flowchart LR
-    P["GAME PROVIDERS<br/>90+ studios<br/>12,000+ games"]
+    P["GAME PROVIDERS<br/>90+ studios<br/>13,000+ games"]
     A["1STAKE AGGREGATOR API<br/>Launch<br/>Wallet<br/>Catalogue<br/>Rounds"]
     O["YOUR CASINO PLATFORM<br/>Game lobby<br/>Wallet<br/>Back office"]
     P <--> A <--> O
@@ -106,7 +106,7 @@ Browse the [supported casino game providers](https://1stake.app/products/casino-
 
 ### Does 1Stake offer a turnkey casino solution?
 
-> Yes. The [1Stake turnkey casino solution](https://1stake.app/solutions/turnkey-casino?utm_source=github&utm_medium=referral&utm_campaign=api_readme) combines a casino front end, game content, payment integrations and back-office tools in a ready-to-deploy platform.
+> Yes. The [1Stake turnkey casino solution](https://1stake.app/solutions/turnkey-casino?utm_source=github&utm_medium=referral&utm_campaign=api_readme) combines a casino front end, game content, payment integrations and back-office tools in a ready-to-deploy platform. Explore the [online casino platform overview on GitHub](https://github.com/1stake/online-casino-platform) for platform features and integrations.
 
 ---
 
