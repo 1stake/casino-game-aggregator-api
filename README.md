@@ -1,149 +1,121 @@
 # 🎰 1Stake Casino Game Aggregator API
-One integration, 90+ game studios and 12,000+ casino games. A developer-friendly **casino game aggregator API** with seamless wallet, game launch and catalogue sync for iGaming operators.
+
+Connect your online casino to **90+ game providers and 12,000+ casino games** through a single integration. The **1Stake Casino API** provides game aggregation, seamless wallet integration, game launch, catalogue synchronisation and round reporting for iGaming operators and platform developers.
 
 > [API OVERVIEW](https://1stake.app/products/casino-api?utm_source=github&utm_medium=referral&utm_campaign=api_readme)
 > • [GAME PROVIDERS](https://1stake.app/products/casino-platform/game-providers?utm_source=github&utm_medium=referral&utm_campaign=api_readme)
-> • [CONTACT US](https://1stake.app/contact-us?utm_source=github&utm_medium=referral&utm_campaign=api_readme)
+> • [REQUEST API ACCESS](https://1stake.app/contact-us?utm_source=github&utm_medium=referral&utm_campaign=api_readme)
 
 ---
 
-## 🧩 What Is a Casino Game Aggregator?
+## What Is a Casino Game Aggregator API?
 
-Connecting an online casino directly to every game studio means a separate technical integration, a separate wallet protocol and a separate commercial agreement for each one.
-That work grows with every provider you add and slows down your content roadmap.
+A **casino game aggregator API** connects an online casino platform to multiple game providers through one interface. It reduces the development and maintenance work required to manage separate provider integrations and wallet protocols.
 
-A **game aggregator** replaces those point-to-point integrations with a single one.
-The **1Stake Casino API** sits between top-tier studios such as Pragmatic Play, PG Soft and Yggdrasil and your platform.
-Your developers build against one documented interface and get access to **90+ game providers and 12,000+ games**.
+1Stake connects your platform to a network of 90+ game providers through a single integration. Your developers use a shared API for game launch, wallet transactions, catalogue updates and round reporting.
 
 ```mermaid
 flowchart LR
-    P["🎮 Game providers<br/>PG Soft · Yggdrasil · Pragmatic Play"]
-    A["🔌 1Stake Aggregator API<br/>launch · wallet · catalogue · rounds"]
-    O["🎰 Your casino<br/>Game lobby · Wallet · Back office"]
+    P["GAME PROVIDERS<br/>90+ studios<br/>12,000+ games"]
+    A["1STAKE AGGREGATOR API<br/>Launch<br/>Wallet<br/>Catalogue<br/>Rounds"]
+    O["YOUR CASINO PLATFORM<br/>Game lobby<br/>Wallet<br/>Back office"]
     P <--> A <--> O
 ```
 
-> 👉 Learn more on the [Casino Game Aggregator API page](https://1stake.app/products/casino-api?utm_source=github&utm_medium=referral&utm_campaign=api_readme).
+---
+
+## 🧩 Casino API Features
+
+### Seamless Wallet Integration
+
+- Keep player balances in your platform's wallet.
+- Process provider wallet operations through signed server-to-server callbacks.
+- Support **balance**, **bet**, **win** and **rollback** operations.
+
+### Game Launch
+
+- Send the player ID, currency, language and device type in a launch request.
+- Receive a **game session URL** to open from your casino lobby.
+- Support desktop and mobile game launches.
+
+### Game Catalogue Synchronisation
+
+- Retrieve game names, categories, thumbnails and return-to-player (RTP) information.
+- Keep your game lobby and provider directory up to date through catalogue synchronisation.
+
+### Round Reporting and Reconciliation
+
+- Review game rounds and their associated transactions.
+- Reconcile your ledger with provider data to support gross gaming revenue (GGR) reporting.
+
+### Sandbox Testing
+
+- Test game launches and wallet flows using sandbox players and balances.
+- Run automated integration checks before moving to production.
+
+### API Security and Transaction Handling
+
+- Signed requests and **IP allowlisting**.
+- **Idempotent transactions** to prevent duplicate processing when requests are retried.
+- Rate limiting and HTTPS transport.
 
 ---
 
-## ✨ Key Features
+## 🔌 Developer Integration
 
-### 💰 Seamless Wallet
-- Player funds stay on **your** platform – no balance transfers to third parties
-- Providers call your wallet endpoints via signed server-to-server callbacks
-- Supported operations: **balance**, **bet**, **win** and **rollback**
+The API uses versioned **JSON endpoints over HTTPS**, explicit error codes and unique transaction IDs for reconciliation and retry handling. Sandbox players, balances and test scenarios support integration testing.
 
-### 🚀 Game Launch
-- Send player ID, currency, language and device type in a single request
-- Receive a ready-to-embed **game session URL**
-- Works across desktop and mobile lobbies
+### Integration Process
 
-### 📚 Game Catalogue Sync
-- Pull game names, categories, thumbnails and RTP details
-- Keep your lobby and provider directory up to date without manual uploads
-
-### 📊 Round Reporting & Reconciliation
-- Inspect every game round together with its underlying transactions
-- Reconcile your ledger against provider data for accurate GGR reporting
-
-### 🧪 Sandbox Environment
-- Test launches and wallet flows with sandbox players and balances
-- Run automated integration checks before you request production access
-
-### 🛡️ Integration Safeguards
-- Signed requests and **IP allowlisting**
-- **Idempotent transactions** for safe retries
-- Rate limiting and HTTPS-only transport
+1. **Confirm requirements and access.** Share your platform requirements and preferred providers, then agree on commercial terms. Receive API documentation, sandbox credentials and engineering support.
+2. **Implement the integration.** Connect game launch, wallet callbacks (`balance`, `bet`, `win` and `rollback`) and catalogue synchronisation. Test these flows in the sandbox.
+3. **Validate transaction flows.** Complete automated checks for game launch, wallet operations and round reporting. Our team reviews the results before production access is enabled.
+4. **Launch in production.** Switch to production credentials and endpoints, and make your selected games available in your lobby with ongoing technical support.
 
 ---
 
-## 👨‍💻 For Developers
+## 🎮 Casino Game Providers and Categories
 
-The API is designed to be predictable, testable and easy to reconcile:
+The 1Stake catalogue includes **slots, live casino, table games, instant games, crash games and virtual sports**. Choose providers and game categories to suit your market and audience.
 
-- Versioned **JSON endpoints over HTTPS**
-- Explicit error codes for every failure mode
-- Unique transaction IDs, so retries never double-charge or double-credit a player
-- Sandbox players, balances and test scenarios
-
-**Example: wallet bet callback** *(illustrative payloads – the full specification is provided with API access)*
-
-```http
-POST /v1/wallet/bet
-```
-
-```json
-{
-  "transaction_id": "tx_9f3a1c",
-  "round_id": "r_20418",
-  "player_id": "p_48213",
-  "amount": 2.00,
-  "currency": "EUR"
-}
-```
-
-```json
-{
-  "status": "ok",
-  "balance": 123.40
-}
-```
-
-Because `transaction_id` is idempotent, replaying the same request returns the original result instead of debiting the player twice.
+Browse the [supported casino game providers](https://1stake.app/products/casino-platform/game-providers?utm_source=github&utm_medium=referral&utm_campaign=api_readme) and contact us to confirm availability for your project.
 
 ---
 
-## 🛠️ Integration Process
+## Frequently Asked Questions
 
-1. **🤝 Discuss access** – Share your requirements with us and agree on commercial terms. You receive API documentation, sandbox credentials and engineering support.
-2. **🔌 Integrate** – Implement game launch, wallet callbacks (balance / bet / win / rollback) and catalogue sync, then test everything in the sandbox.
-3. **✅ Verify** – Automated integration tests cover launch, wallet and round flows. Our team reviews the results before you go to production.
-4. **🚀 Go live** – Switch to production keys and endpoints. Your selected games appear in your lobby, with ongoing technical support from our team.
+### Which casino game providers are available?
 
----
+> See the [game provider directory](https://1stake.app/products/casino-platform/game-providers?utm_source=github&utm_medium=referral&utm_campaign=api_readme). For a specific studio or game category, [contact us](https://1stake.app/contact-us?utm_source=github&utm_medium=referral&utm_campaign=api_readme) to confirm availability.
 
-## 🎮 Game Provider Network
+### How does seamless wallet integration work?
 
-Our aggregator connects **90+ studios** into one catalogue, so you can build a lobby that matches your market and audience.
+> Player balances remain in your system. Provider balance checks, bets, wins and rollbacks are processed through signed callbacks to your wallet endpoints.
 
-> 👉 Browse the [full list of supported game providers](https://1stake.app/products/casino-platform/game-providers?utm_source=github&utm_medium=referral&utm_campaign=api_readme).
+### Can we test the casino API before launch?
 
----
+> Yes. Sandbox players and balances let you test game launches and wallet transactions. Complete the integration checks and review before moving to production.
 
-## ❓ FAQ
+### How do we get API documentation and credentials?
 
-**Which game providers are available?**
-See the [provider directory](https://1stake.app/products/casino-platform/game-providers?utm_source=github&utm_medium=referral&utm_campaign=api_readme). If you need a specific studio or game type, [contact us](https://1stake.app/contact-us?utm_source=github&utm_medium=referral&utm_campaign=api_readme) to confirm availability.
+> [Request API access](https://1stake.app/contact-us?utm_source=github&utm_medium=referral&utm_campaign=api_readme) to discuss your integration requirements. Documentation and sandbox credentials are provided during onboarding.
 
-**How does the wallet integration work?**
-It is a seamless (single-wallet) model: funds remain in your system, and providers check balances and record bets, wins and rollbacks through signed callbacks.
+### How is casino API access priced?
 
-**Can we test before going live?**
-Yes. Use sandbox players and balances, then complete the automated integration checks to unlock production access.
+> Casino API access is a paid service. [Tell us about your project](https://1stake.app/contact-us?utm_source=github&utm_medium=referral&utm_campaign=api_readme) to discuss pricing, commercial terms and integration requirements.
 
-**How is the API priced?**
-Casino API access is a paid service. [Tell us about your project](https://1stake.app/contact-us?utm_source=github&utm_medium=referral&utm_campaign=api_readme) and we will explain pricing and integration steps before you commit.
+### Does 1Stake offer a turnkey casino solution?
 
-**Can I combine the API with a full casino platform?**
-Yes. If you need a complete front end and back office rather than just content, take a look at our [turnkey casino platform](https://1stake.app/products/casino-platform?utm_source=github&utm_medium=referral&utm_campaign=api_readme).
+> Yes. The [1Stake turnkey casino solution](https://1stake.app/solutions/turnkey-casino?utm_source=github&utm_medium=referral&utm_campaign=api_readme) combines a casino front end, game content, payment integrations and back-office tools in a ready-to-deploy platform.
 
 ---
 
-## ✅ Why Choose the 1Stake Game Aggregator?
+## 🚀 Request Casino API Access
 
-- 🔌 One integration instead of dozens of studio-specific ones
-- ⚡ Faster time-to-market for new games and brands
-- 💼 Player funds stay under your control
-- 🔐 Signed, idempotent and rate-limited API contract
-- 🧪 Sandbox and automated checks to de-risk your launch
-- 🤝 Hands-on integration support from our engineers
+Use one provider integration, retain control of player balances and validate transaction flows before launch. Our engineers support your team through onboarding, testing and production integration.
 
-> 🚀 Integrate once. Offer thousands of games.
-
-> 👉 [Request API access](https://1stake.app/contact-us?utm_source=github&utm_medium=referral&utm_campaign=api_readme)
+[Contact the 1Stake team](https://1stake.app/contact-us?utm_source=github&utm_medium=referral&utm_campaign=api_readme) to discuss game providers, pricing and API access.
 
 ---
 
-Created and supported with ❤️ by the [1Stake iGaming Software Development Team](https://1stake.app/?utm_source=github&utm_medium=referral&utm_campaign=api_readme)
+Developed and supported by the [1Stake iGaming Software Development Team](https://1stake.app/?utm_source=github&utm_medium=referral&utm_campaign=api_readme).
